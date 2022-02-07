@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="~/Scripts/v6.6.1-dist/ol.js"></script>
+    <link href="~/Scripts/v6.6.1-dist/ol.css" rel="stylesheet" />
+    <script src="~/Scripts/jsPanel/jspanel.js"></script>
+    <link href="~/Scripts/jsPanel/jspanel.css" rel="stylesheet" />
+    <title>@ViewBag.Title - ASP.NET Uygulamam</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body onload="Listall()">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Başarsoft Harita Uygulaması", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a id="zoom-in" class="nav-link" href="javascript:zoomin();">Yakınlaştır</a></li>
+                    <li><a id="zoom-out" class="nav-link" href="javascript:zoomout();">Uzaklaştır</a></li>
+                    <li><a class="nav-link" href="javascript:ActiveKapi();">Kapı Ekle</a></li>
+                    <li><a class="nav-link" href="javascript:ActiveMahalle();">Mahalle Ekle</a></li>
+                    <li><a class="nav-link" href="javascript:ActiveBilgi();">Bilgi Al</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content" style="margin-left: -20px;">
+        @RenderBody()
+        <hr />
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
